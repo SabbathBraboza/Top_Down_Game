@@ -2040,6 +2040,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anime: {fileID: 37627281}
+  WeaponImage:
+  - {fileID: 8411846286028600664, guid: 425e099af29ebb344b3fc4e28985c3cc, type: 3}
+  - {fileID: -1299997056970067198, guid: 916ff7ba1740bcf409096a576deb7e79, type: 3}
+  - {fileID: 8090269329620958752, guid: 3d62d86872eaa704fa3d33a081e5392e, type: 3}
+  - {fileID: -5348086642422687129, guid: dec63e2894c88e74b8caab470452c8d8, type: 3}
+  - {fileID: -7528345649729741217, guid: 7ac0f0b0374b1aa4ea3d9db49390d7ea, type: 3}
+  EquppiedWeaponImage: {fileID: 1397505395}
 --- !u!1 &2086826247
 GameObject:
   m_ObjectHideFlags: 0

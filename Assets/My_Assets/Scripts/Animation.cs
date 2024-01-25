@@ -20,10 +20,10 @@ public class Animation : MonoBehaviour
 
         [SerializeField] private int _weaponID;
 
-        private int Weapon => _weaponID;    
+        public int Weapon => _weaponID;    
 
-        private int SetWeapon
-        {
+        public int SetWeapon
+        {   
             set
             {
                 _weaponID = value;
