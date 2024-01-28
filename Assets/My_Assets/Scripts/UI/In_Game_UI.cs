@@ -1,9 +1,10 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class In_Game_UI : MonoBehaviour
 {
     [SerializeField] private TDS_Player.Animation anime;
+    [SerializeField] private Text AmmoCount;
     [SerializeField] private Sprite[] WeaponImage;
     [SerializeField] private Image EquppiedWeaponImage;
 
@@ -22,5 +23,15 @@ public class In_Game_UI : MonoBehaviour
     private void WhenSwitch(int ID)
     {
         EquppiedWeaponImage.sprite = WeaponImage[ID];
+
+        switch(ID)
+        {
+            case <= 1:
+                {
+                    AmmoCount.text = "∞";
+                }break;
+
+               
+        }
     }
 }
