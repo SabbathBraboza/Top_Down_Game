@@ -63,11 +63,11 @@ public class Animation : MonoBehaviour
             }
 
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
+            if (Input.GetKeyDown(keys.Shoot))
             {
                 anime.SetTrigger("Attack");
             }
-            if (Input.GetKeyUp(KeyCode.Mouse0))
+            if (Input.GetKeyUp(keys.Shoot))
             {
                 anime.ResetTrigger("Attack");
             }

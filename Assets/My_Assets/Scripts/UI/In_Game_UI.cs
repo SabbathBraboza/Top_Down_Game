@@ -24,14 +24,12 @@ public class In_Game_UI : MonoBehaviour
     {
         EquppiedWeaponImage.sprite = WeaponImage[ID];
 
-        switch(ID)
+        AmmoCount.text = ID switch
         {
-            case <= 1:
-                {
-                    AmmoCount.text = "∞";
-                }break;
-
-               
-        }
+            <= 1 => "∞",
+            2 => AmmoCount.text = anime.GetComponent<Gun>().PistolAmmo.ToString(),
+            3=> AmmoCount.text = anime.GetComponent<Gun>().RifleAmmo.ToString(),
+            _=>string.Empty
+        };      
     }
 }
