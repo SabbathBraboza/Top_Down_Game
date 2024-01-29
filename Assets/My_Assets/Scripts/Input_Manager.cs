@@ -16,7 +16,7 @@ public class Input_Manager : ScriptableObject
 
     public KeyCode Switch = KeyCode.C;  // Used to Switch between Character
 
-    public KeyCode Shoot = KeyCode.Mouse0;
+    public KeyCode Fire= KeyCode.Mouse0;
 
     public KeyCode Bat = KeyCode.Alpha1;               
     public KeyCode Knife = KeyCode.Alpha2;       

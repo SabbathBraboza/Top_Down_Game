@@ -219,6 +219,6 @@ MonoBehaviour:
   OnDamage:
     m_PersistentCalls:
       m_Calls: []
-  <max>k__BackingField: 100
-  value: 100
+  <max>k__BackingField: 50
+  value: 0
   damageMultipler: 1
