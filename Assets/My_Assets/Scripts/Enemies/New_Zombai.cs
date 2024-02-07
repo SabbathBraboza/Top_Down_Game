@@ -7,9 +7,13 @@ public class New_Zombai : MonoBehaviour
     public GameObject player;
     public float speed;
 
+    private Animator anime;
     private float distance;
 
-
+    private void Awake()
+    {
+        anime = GetComponent<Animator>(); 
+            }
     private void Update()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);
