@@ -4,7 +4,7 @@ using UnityEngine;
 public class Gun : MonoBehaviour
 {
 
-      public ushort PistolAmmo, RifleAmmo;
+     public ushort PistolAmmo, RifleAmmo;
 
       [SerializeField] private Bullet bullet;
       [SerializeField] private Transform nozzle;
@@ -30,7 +30,7 @@ public class Gun : MonoBehaviour
                                     if (bullet.gameObject.activeSelf) continue;
                                     bullet.transform.position = nozzle.position;
                                     bullet.gameObject.SetActive(true);
-                                    bullet.Fire(-nozzle.up, 100f);
+                                    bullet.Fire(-nozzle.up, 10f);
                                     break;
                               }
                         }
@@ -39,7 +39,15 @@ public class Gun : MonoBehaviour
                   case 1: // Rifle
                         {
 
-                        }
+                    foreach (var bullet in bullets)
+                    {
+                        if (bullet.gameObject.activeSelf) continue;
+                        bullet.transform.position = nozzle.position;
+                        bullet.gameObject.SetActive(true);
+                        bullet.Fire(-nozzle.up, 10f);
+                        break;
+                    }
+                }
                         break;
             }
       }
