@@ -1,6 +1,7 @@
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Healths : MonoBehaviour, IDamageable
 {
@@ -9,6 +10,8 @@ public class Healths : MonoBehaviour, IDamageable
     [field: SerializeField, Min(0)] public int max { set; private get; } = 100;
     [SerializeField, ReadOnly] private int value;
     [SerializeField, Range(0f, 5f)] private int damageMultipler = 1;
+    [SerializeField] private Slider HealthBar
+        ;
 
     private void Awake()
     {
@@ -17,6 +20,7 @@ public class Healths : MonoBehaviour, IDamageable
     public int Value() => value;
     private void Start()
     {
+        HealthBar.value = max;
         value = max;
     }
 
@@ -25,6 +29,14 @@ public class Healths : MonoBehaviour, IDamageable
         anime.Play("Death");
     }
 
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemies"))
+        {
+            HealthBar.value -= 10;
+        }
+    }
     void IDamageable.OnDamage(int amount)
     {
         value = Mathf.Clamp(value - amount * damageMultipler, 0, max);
