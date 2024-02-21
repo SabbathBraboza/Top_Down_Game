@@ -34,12 +34,12 @@ namespace TDS_Player
         private void Update()
         {
             #region INPUTs
-            if (Input.GetKeyDown(keys.Forword)) direction.y += 1F;
+            if (Input.GetKeyDown(keys.Forward)) direction.y += 1F;
             if (Input.GetKeyDown(keys.Backward)) direction.y -= 1F;
             if (Input.GetKeyDown(keys.left)) direction.x -= 1F;
             if (Input.GetKeyDown(keys.Right)) direction.x += 1F;
 
-            if (Input.GetKeyUp(keys.Forword)) direction.y -= 1F;
+            if (Input.GetKeyUp(keys.Forward)) direction.y -= 1F;
             if (Input.GetKeyUp(keys.Backward)) direction.y += 1F;
             if (Input.GetKeyUp(keys.left)) direction.x += 1F;
             if (Input.GetKeyUp(keys.Right)) direction.x -= 1F;

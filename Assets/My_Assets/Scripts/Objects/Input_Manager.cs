@@ -8,8 +8,8 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Input_Manager : ScriptableObject
 {
-     public KeyCode 
-        Forword = KeyCode.W,    // Moves  Up
+     public KeyCode
+        Forward = KeyCode.W,    // Moves  Up
         Backward=KeyCode.S,     // Moves Down
         left=KeyCode.A,         // Moves Left
         Right = KeyCode.D;      // Moves Right
@@ -23,4 +23,26 @@ public class Input_Manager : ScriptableObject
     public KeyCode Pistol = KeyCode.Alpha3;
     public KeyCode Rifle = KeyCode.Alpha4;
     public KeyCode FlameThrower = KeyCode.Alpha5;
+
+    public KeyCode this[string keyname]
+    {
+        get => keyname switch
+        {
+            nameof(Forward) => Forward,
+            "Back" => Backward,
+            "Left" => left,
+            "Right" => Right
+        };
+        set
+        {
+            switch (keyname)
+                {
+                case "Forward": Forward = value; break;
+                case "Backward": Backward = value;break;
+                case "Left": left = value; break;
+                case "Right": Right = value; break;
+            }
+        }
+    }
+
 }

@@ -4,10 +4,10 @@ using TDS.Object;
 
 namespace TDS.UI.Menu
 {
-    public class Options : MonoBehaviour
+    public class OptionMenu: MonoBehaviour
     {
         [SerializeField] private Canvas canvas;
-        [SerializeField] private Settings setting;
+        private Settings setting;
 
         public UnityEvent<bool> OnStateChange;
 
@@ -15,6 +15,7 @@ namespace TDS.UI.Menu
         {
             canvas = GetComponent<Canvas>();
         }
+
 
         private void Update()
         {
