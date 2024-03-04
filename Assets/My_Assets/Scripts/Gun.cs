@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ public class Gun : MonoBehaviour
 
       [SerializeField] private List<Bullet> bullets;
 
+    private WaitForSeconds bulletShootInterval = new(0.1f);
 
       private void Start()
       {
@@ -25,31 +27,41 @@ public class Gun : MonoBehaviour
             {
                   case 0: // Pistol
                         {
-                              foreach (var bullet in bullets)
-                              {
-                                    if (bullet.gameObject.activeSelf) continue;
-                                    bullet.transform.position = nozzle.position;
-                                    bullet.gameObject.SetActive(true);
-                                    bullet.Fire(-nozzle.up, 10f);
-                                    break;
-                              }
+                            ShootInactiveBullet();
                         }
                         break;
 
                   case 1: // Rifle
                         {
-
-                    foreach (var bullet in bullets)
+                    for (byte i = 0; i < 3; i++)
                     {
-                        if (bullet.gameObject.activeSelf) continue;
-                        bullet.transform.position = nozzle.position;
-                        bullet.gameObject.SetActive(true);
-                        bullet.Fire(-nozzle.up, 10f);
-                        break;
+                        StartCoroutine(ShootRifle());
                     }
-                }
+                        }
                         break;
             }
       }
+    private IEnumerator ShootRifle()
+    {
+        for (byte i = 0; i < 3; i++)
+        {
+            ShootInactiveBullet();
+            if (i == 2) break;
+            yield return bulletShootInterval;
+            yield break;
+        }
+    }
+
+    private void ShootInactiveBullet()
+    {
+        foreach (var bullet in bullets)
+        {
+            if (bullet.gameObject.activeSelf) continue;
+            bullet.transform.position = nozzle.position;
+            bullet.gameObject.SetActive(true);
+            bullet.Fire(-nozzle.up, 10f);
+            break;
+        }
+    }
 
 }
