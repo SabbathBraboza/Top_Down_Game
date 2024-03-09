@@ -45,3 +45,12 @@ TagManager:
   - name: Effects
     uniqueID: 199597397
     locked: 0
+  - name: Interior
+    uniqueID: 27662413
+    locked: 0
+  - name: Wall
+    uniqueID: 3064847283
+    locked: 0
+  - name: Stuffs
+    uniqueID: 3688739947
+    locked: 0
