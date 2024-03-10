@@ -14,6 +14,7 @@ namespace TDS_Player
         private Animator anime;
          public float Move;
         private Vector3 mousePos;
+        private Useable useable;
 
         [SerializeField] private Input_Manager keys;
 
@@ -45,6 +46,11 @@ namespace TDS_Player
             if (Input.GetKeyUp(keys.Right)) direction.x -= 1F;
             #endregion
             MouseL();
+
+            if (Input.GetKeyDown(KeyCode.T) && useable != null)
+            {
+                useable.Use();
+            }
         }
 
         private void FixedUpdate()
@@ -61,6 +67,21 @@ namespace TDS_Player
             float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Slerp(transform.rotation, 
                 Quaternion.AngleAxis(angle + 90f, Vector3.forward), Time.deltaTime * 5f);
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if(collision.TryGetComponent(out Useable Item))
+            {
+                useable = Item;
+            }
+        }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out Useable _))
+            {
+                useable = null;
+            }
         }
     }
 }
