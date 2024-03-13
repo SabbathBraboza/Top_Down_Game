@@ -344,7 +344,16 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shadows_outside_0000_Layer-1_0: 3281348922403139657
+      shadows_outside_0000_Layer-1_1: -790462446734810665
+      shadows_outside_0000_Layer-1_2: 8224598055739432959
+      shadows_outside_0000_Layer-1_3: -8550114140489654322
+      shadows_outside_0000_Layer-1_4: -3979169989896294121
+      shadows_outside_0000_Layer-1_5: 392524924001551959
+      shadows_outside_0000_Layer-1_6: 109450182507608598
+      shadows_outside_0000_Layer-1_7: 298355127362287987
+      shadows_outside_0000_Layer-1_8: -6482606469864409352
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

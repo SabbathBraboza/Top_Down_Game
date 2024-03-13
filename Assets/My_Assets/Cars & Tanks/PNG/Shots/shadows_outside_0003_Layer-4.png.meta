@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      shadows_outside_0003_Layer-4_0: -5797835519733059095
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

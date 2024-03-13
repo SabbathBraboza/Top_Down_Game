@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      armored_car_0007_Layer-8_0: 4348307887121058500
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

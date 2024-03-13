@@ -152,7 +152,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tank_0005_Layer-9_0: -1842647956993231059
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

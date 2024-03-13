@@ -512,7 +512,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      pickup_0000_Layer-1_0: -9087298098232332564
+      pickup_0000_Layer-1_1: 2016753067739677623
+      pickup_0000_Layer-1_10: 3831103608691370347
+      pickup_0000_Layer-1_11: 8537086441272154982
+      pickup_0000_Layer-1_12: 4934447163830883102
+      pickup_0000_Layer-1_13: -4721212950402764421
+      pickup_0000_Layer-1_14: -8765205369787648333
+      pickup_0000_Layer-1_15: -6221712324831023977
+      pickup_0000_Layer-1_2: 7062620961498357270
+      pickup_0000_Layer-1_3: 2790380920089965960
+      pickup_0000_Layer-1_4: -657673357066174723
+      pickup_0000_Layer-1_5: -2653368594810983606
+      pickup_0000_Layer-1_6: 5766825279742405634
+      pickup_0000_Layer-1_7: -8943889631277440642
+      pickup_0000_Layer-1_8: -936320988294209880
+      pickup_0000_Layer-1_9: -4828867473927404502
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
