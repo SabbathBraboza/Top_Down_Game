@@ -51,6 +51,11 @@ namespace TDS_Player
             {
                 useable.Use();
             }
+            if(Input.GetKeyUp(KeyCode.B) && useable !=null)
+            {
+                useable.Use();
+            }
+
         }
 
         private void FixedUpdate()
@@ -75,10 +80,18 @@ namespace TDS_Player
             {
                 useable = Item;
             }
+            if (collision.TryGetComponent(out Useable Car))
+            {
+                useable = Car;
+            }
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out Useable _))
+            {
+                useable = null;
+            }
+            if (collision.TryGetComponent(out Useable Car))
             {
                 useable = null;
             }

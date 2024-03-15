@@ -2,23 +2,53 @@ using UnityEngine;
 
 public class Car : MonoBehaviour
 {
-    [SerializeField] private Rigidbody2D rb;
-    private float AccelerationPower = 30f;
-     private float StreeingPower = 5f;
-    [SerializeField] private float StreeingAmount, Speed= 100f, direction;
+    //References
+    private float RotationSpeed = 90f;
+    private float maxFuel = 100f;
+    private Rigidbody2D rb;
+    private float currentFuel;
+    //
+    [SerializeField] private int CarSpeed;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.drag = 1f;
+        currentFuel = maxFuel;
     }
-    private void FixedUpdate()
-    {
-        StreeingAmount = Input.GetAxis("Horizontal");
-        Speed = Input.GetAxis("Vertical") * AccelerationPower;
-        direction = Mathf.Sign(Vector2.Dot(rb.velocity, rb.GetRelativeVector(Vector2.up)));
-        rb.rotation += StreeingAmount * StreeingPower * rb.velocity.magnitude * direction;
 
-        rb.AddRelativeForce(Vector2.up * Speed);
-        rb.AddRelativeForce(-Vector2.right * rb.velocity.magnitude * StreeingAmount / 2);
+    private void Update()
+    {
+        float verticalInput = Input.GetAxis("Vertical");
+        float horizontalInput = Input.GetAxis("Horizontal");
+
+        if (currentFuel > 0f)
+        {
+            MoveCar(verticalInput);
+            RotateCar(horizontalInput);
+        }
+        else
+            ApplyBrakingForce();
     }
-}
+
+    private void MoveCar(float verticalInput)
+    {
+        Vector2 carForward = transform.right;
+        Vector2 force = CarSpeed * verticalInput * carForward;
+        rb.AddForce(force);
+    }
+
+    private void RotateCar(float horizontalInput)
+    {
+        float rotation = -horizontalInput * RotationSpeed * Time.deltaTime;
+        transform.Rotate(Vector3.forward, rotation);
+    }
+    private void ApplyBrakingForce()
+    {
+        Vector2 oppositeForce = -rb.velocity * 0.5f;
+        rb.AddForce(oppositeForce);
+
+    }
+
+
+    }
