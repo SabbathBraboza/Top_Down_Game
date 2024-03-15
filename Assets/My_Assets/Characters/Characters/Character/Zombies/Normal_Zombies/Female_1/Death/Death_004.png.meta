@@ -131,10 +131,10 @@ TextureImporter:
       name: Death_004_0
       rect:
         serializedVersion: 2
-        x: 158
-        y: 182
-        width: 156
-        height: 241
+        x: 180
+        y: 166
+        width: 52
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,10 +152,10 @@ TextureImporter:
       name: Death_004_1
       rect:
         serializedVersion: 2
-        x: 280
-        y: 293
-        width: 52
-        height: 53
+        x: 187
+        y: 218
+        width: 20
+        height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -173,10 +173,10 @@ TextureImporter:
       name: Death_004_2
       rect:
         serializedVersion: 2
-        x: 305
-        y: 263
-        width: 20
-        height: 31
+        x: 198
+        y: 89
+        width: 156
+        height: 241
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

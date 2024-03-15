@@ -125,8 +125,8 @@ TextureImporter:
       name: Death_002_0
       rect:
         serializedVersion: 2
-        x: 117
-        y: 184
+        x: 110
+        y: 169
         width: 285
         height: 159
       alignment: 0

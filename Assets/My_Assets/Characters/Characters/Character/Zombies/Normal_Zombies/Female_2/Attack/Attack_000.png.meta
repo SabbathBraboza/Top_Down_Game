@@ -125,8 +125,8 @@ TextureImporter:
       name: Attack_000_0
       rect:
         serializedVersion: 2
-        x: 186
-        y: 104
+        x: 181
+        y: 285
         width: 145
         height: 123
       alignment: 0

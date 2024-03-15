@@ -84,7 +84,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -134,10 +134,10 @@ TextureImporter:
       name: daeth_004_0
       rect:
         serializedVersion: 2
-        x: 144
-        y: 363
-        width: 91
-        height: 65
+        x: 207
+        y: 281
+        width: 29
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: daeth_004_1
       rect:
         serializedVersion: 2
-        x: 149
-        y: 232
-        width: 218
-        height: 277
+        x: 259
+        y: 280
+        width: 29
+        height: 43
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: daeth_004_2
       rect:
         serializedVersion: 2
-        x: 224
-        y: 189
-        width: 29
-        height: 43
+        x: 145
+        y: 3
+        width: 218
+        height: 277
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: daeth_004_3
       rect:
         serializedVersion: 2
-        x: 276
-        y: 188
-        width: 29
-        height: 43
+        x: 277
+        y: 84
+        width: 91
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

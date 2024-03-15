@@ -47,7 +47,7 @@ TextureImporter:
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 1
+  spriteExtrude: 0
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
@@ -125,8 +125,8 @@ TextureImporter:
       name: attack_008_0
       rect:
         serializedVersion: 2
-        x: 100
-        y: 73
+        x: 214
+        y: 256
         width: 198
         height: 183
       alignment: 0

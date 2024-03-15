@@ -125,10 +125,10 @@ TextureImporter:
       name: Attack_008_0
       rect:
         serializedVersion: 2
-        x: 158
-        y: 90
-        width: 130
-        height: 139
+        x: 283
+        y: 158
+        width: 139
+        height: 130
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
