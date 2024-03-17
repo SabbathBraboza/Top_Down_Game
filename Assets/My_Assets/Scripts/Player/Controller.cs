@@ -51,7 +51,7 @@ namespace TDS_Player
             {
                 useable.Use();
             }
-            if(Input.GetKeyUp(KeyCode.B) && useable !=null)
+            if(Input.GetKeyUp(KeyCode.C) && useable !=null)
             {
                 Debug.Log("Inside the car");
                 useable.Use();
@@ -92,8 +92,7 @@ namespace TDS_Player
             {
                 useable = null;
             }
-
-            if (collision.TryGetComponent(out Useable _))
+            if (collision.TryGetComponent(out Useable Car))
             {
                 useable = null;
             }
