@@ -17,7 +17,7 @@ public class EnemyMovement : MonoBehaviour
     {
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerAwarenessController = GetComponent<PlayerAwarenessController>();
-        _targetDirection = transform.right;
+        _targetDirection = transform.up;
     }
 
     private void FixedUpdate()

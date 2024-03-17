@@ -10,21 +10,21 @@ public class PlayerAwarenessController : MonoBehaviour
     [SerializeField]
     private float _playerAwarenessDistance;
 
-    public Transform player;
+    [SerializeField]private Transform player;
 
     [System.Obsolete]
     private void Awake()
     {
-        player = FindObjectOfType<Controller>().transform;
+        player = FindObjectOfType<Character>().transform;
     }
 
-    // Update is called once per frame
+  
     void Update()
     {
         Vector2 enemyToPlayerVector = player.position - transform.position;
         DirectionToPlayer = enemyToPlayerVector.normalized;
 
-        if (enemyToPlayerVector.magnitude <= _playerAwarenessDistance)
+        if (enemyToPlayerVector.magnitude < _playerAwarenessDistance)
         {
             AwareOfPlayer = true;
         }

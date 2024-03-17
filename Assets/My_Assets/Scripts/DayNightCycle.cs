@@ -55,8 +55,8 @@ public class DayNightCycle : MonoBehaviour
 
       public ShadowCaster2D[] shadowCasters;
 
-
-      private void Awake()
+    [Obsolete]
+    private void Awake()
       {
             shadowCasters = FindObjectsOfType<ShadowCaster2D>(true);
       }

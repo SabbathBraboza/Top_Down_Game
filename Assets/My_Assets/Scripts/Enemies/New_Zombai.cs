@@ -13,7 +13,7 @@ public class New_Zombai : MonoBehaviour
     private void Awake()
     {
         anime = GetComponent<Animator>(); 
-            }
+    }
     private void Update()
     {
         distance = Vector2.Distance(transform.position, player.transform.position);

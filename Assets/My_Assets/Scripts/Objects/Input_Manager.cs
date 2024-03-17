@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 
 
@@ -31,7 +30,8 @@ public class Input_Manager : ScriptableObject
             nameof(Forward) => Forward,
             "Back" => Backward,
             "Left" => left,
-            "Right" => Right
+            "Right" => Right,
+            _ => throw new System.NotImplementedException()
         };
         set
         {

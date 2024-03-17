@@ -55,3 +55,6 @@ TagManager:
   - name: Stuffs
     uniqueID: 3688739947
     locked: 0
+  - name: Enemy
+    uniqueID: 4254001323
+    locked: 0

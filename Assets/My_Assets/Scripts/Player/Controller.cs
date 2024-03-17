@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using static Unity.Collections.NativeText;
 
 
@@ -12,9 +13,10 @@ namespace TDS_Player
     {
         private Character _character;
         private Animator anime;
-         public float Move;
+        public float Move;
         private Vector3 mousePos;
         private Useable useable;
+        [SerializeField] private Light2D FlashLight;
 
         [SerializeField] private Input_Manager keys;
 
@@ -55,6 +57,10 @@ namespace TDS_Player
             {
                 Debug.Log("Inside the car");
                 useable.Use();
+            }
+            if(Input.GetKeyUp(KeyCode.F))
+            {
+                FlashLight.enabled = !FlashLight.enabled;
             }
 
         }
