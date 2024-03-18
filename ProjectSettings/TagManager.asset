@@ -58,3 +58,9 @@ TagManager:
   - name: Enemy
     uniqueID: 4254001323
     locked: 0
+  - name: Objects
+    uniqueID: 2968286449
+    locked: 0
+  - name: bush
+    uniqueID: 3387972481
+    locked: 0
