@@ -29,11 +29,7 @@ public class Healths : MonoBehaviour, IDamageable
         if (collision.gameObject.CompareTag("Enemies"))
         {
             HealthBar.value -= 50;
-            if (max < 0)
-            {
-               anime.SetBool("IsDeath", true);
-            }
-            else anime.SetBool("IsDeath" ,false);
+          if(max < 0 ) OnDeath.Invoke();
         }
     }
     void IDamageable.OnDamage(int amount)

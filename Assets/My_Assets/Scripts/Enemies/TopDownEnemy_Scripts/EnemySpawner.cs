@@ -26,8 +26,15 @@ public class EnemySpawner : MonoBehaviour
 
         if (_timeUntilSpawn <= 0)
         {
-            Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
-            SetTimeUntilSpawn();
+            if (_enemyPrefab != null)
+            {
+                Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
+                SetTimeUntilSpawn();
+            }
+            else
+            {
+                Debug.LogWarning("Enemy prefab is null. Cannot instantiate.");
+            }
         }
     }
 

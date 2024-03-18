@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
       {
             if (collision.transform.TryGetComponent(out IDamageable ID))
             {
-                  ID.OnDamage(4);
+                  ID.OnDamage(30);
             }
             SetActive(false);
       }
