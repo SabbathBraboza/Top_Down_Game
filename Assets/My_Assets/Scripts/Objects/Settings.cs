@@ -9,6 +9,6 @@ namespace TDS.Object
         public ushort TargetFPS;
 
         [Header("INPUT")]
-        public Input_Manager keys;
+        public Input_Manager key;
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TDS.Object;
 using TDS_UI;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ using UnityEngine;
 public abstract class Option<T>: MonoBehaviour
 {
     [SerializeField] private Main main;
-   
+   protected Settings Settings => main.setting;
    
     protected virtual void Reset()
     {
