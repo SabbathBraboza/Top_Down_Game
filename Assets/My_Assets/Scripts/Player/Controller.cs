@@ -49,16 +49,11 @@ namespace TDS_Player
             #endregion
             MouseL();
 
-            if (Input.GetKeyDown(KeyCode.T) && useable != null)
+            if (Input.GetKeyDown(KeyCode.Q) && useable != null)
             {
                 useable.Use();
             }
-            if(Input.GetKeyUp(KeyCode.C) && useable !=null)
-            {
-                Debug.Log("Inside the car");
-                useable.Use();
-            }
-            if(Input.GetKeyUp(KeyCode.F))
+            if (Input.GetKeyUp(KeyCode.F))
             {
                 FlashLight.enabled = !FlashLight.enabled;
             }
@@ -68,7 +63,7 @@ namespace TDS_Player
         private void FixedUpdate()
         {
             if (IsMoving)
-            { 
+            {
                 transform.Translate(Move * Time.deltaTime * direction, Space.World);
             }
         }
@@ -77,19 +72,15 @@ namespace TDS_Player
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 90f));
             float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Slerp(transform.rotation, 
+            transform.rotation = Quaternion.Slerp(transform.rotation,
                 Quaternion.AngleAxis(angle + 90f, Vector3.forward), Time.deltaTime * 5f);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(collision.TryGetComponent(out Useable Item))
+            if (collision.TryGetComponent(out Useable Item))
             {
                 useable = Item;
-            }
-            if (collision.TryGetComponent(out Useable Car))
-            {
-                useable = Car;
             }
         }
         private void OnTriggerExit2D(Collider2D collision)
@@ -98,10 +89,7 @@ namespace TDS_Player
             {
                 useable = null;
             }
-            if (collision.TryGetComponent(out Useable Car))
-            {
-                useable = null;
-            }
+
         }
     }
 }

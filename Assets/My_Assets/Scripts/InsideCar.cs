@@ -7,11 +7,11 @@ using static UnityEngine.Rendering.DebugUI;
 public class InsideCar : MonoBehaviour
 {
 
-    public UnityEvent<bool> OnEnter;
-    private bool Value;
+    public UnityEvent OnEnter;
+  
     public void Use()
     {
-        OnEnter.Invoke(Value = !Value);
+        OnEnter.Invoke();
     }
 
 }

@@ -11,7 +11,6 @@ public class Zombai_Healths : MonoBehaviour, IDamageable
     [field: SerializeField, Min(0)] public int max { set; private get; } = 100;
     [SerializeField, ReadOnly] private int value;
     [SerializeField, Range(0f, 5f)] private int damageMultipler = 1;
-   //
 
     private void Awake()
     {
@@ -20,7 +19,6 @@ public class Zombai_Healths : MonoBehaviour, IDamageable
     public int Value() => value;
     private void Start()
     {
-        
         value = max;
     }
 
@@ -29,7 +27,6 @@ public class Zombai_Healths : MonoBehaviour, IDamageable
         value = Mathf.Clamp(value - amount * damageMultipler, 0, max);
         if (value <= 0)
         {
-            anime.SetBool("Dead", true);
             Destroy(gameObject);
         }
         else
