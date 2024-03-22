@@ -23,17 +23,6 @@ namespace TDS_Player
         [SerializeField] public Vector2 direction;
         public bool IsMoving => direction != Vector2.zero;
 
-        //private Vector2 Direction
-        //{
-        //    get => direction;
-        //    set
-        //    {
-        //        direction = value;
-        //        anime.SetFloat("Pace", direction != Vector2.zero ? 1f : 0f);
-        //    }
-        //}
-
-
         private void Update()
         {
             #region INPUTs
@@ -47,6 +36,7 @@ namespace TDS_Player
             if (Input.GetKeyUp(keys.left)) direction.x += 1F;
             if (Input.GetKeyUp(keys.Right)) direction.x -= 1F;
             #endregion
+
             MouseL();
 
             if (Input.GetKeyDown(KeyCode.Q) && useable != null)

@@ -17,7 +17,7 @@ MonoBehaviour:
   left: 97
   Right: 100
   Switch: 99
-  Fire: 323
+  Fire: 318
   FlashLigth: 102
   ToInteract: 113
   Bat: 49
