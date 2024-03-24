@@ -11,7 +11,6 @@ public class Animation : MonoBehaviour
     public  Input_Manager keys;
     private Controller Control;
 
-
         private readonly int
             SwitchHash = Animator.StringToHash("Switch"),
             WeaponeIdHash = Animator.StringToHash("Weapon ID");
@@ -63,16 +62,9 @@ public class Animation : MonoBehaviour
                 anime.SetFloat("Pace", 0f);
             }
 
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                anime.SetTrigger("Attack");
-            }
-            if (Input.GetKeyUp(KeyCode.Mouse0))
-            {
-                anime.ResetTrigger("Attack");
-            }
-
+            if (Input.GetKeyDown(KeyCode.Mouse0))  anime.SetTrigger("Attack");
+            
+            if (Input.GetKeyUp(KeyCode.Mouse0)) anime.ResetTrigger("Attack"); 
         }
-
     }
 }

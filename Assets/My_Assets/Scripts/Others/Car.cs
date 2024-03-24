@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 
 public class Car : MonoBehaviour
 {
@@ -7,8 +8,10 @@ public class Car : MonoBehaviour
     private float maxFuel = 100f;
     private Rigidbody2D rb;
     private float currentFuel;
-    //
     [SerializeField] private int CarSpeed;
+    [SerializeField] private BoxCollider2D box;
+
+    [SerializeField] private GameObject[] headLight;
 
     private void Awake()
     {
@@ -50,5 +53,11 @@ public class Car : MonoBehaviour
 
     }
 
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemies"))
+        {
+            Destroy(collision.gameObject);
+        }
     }
+}

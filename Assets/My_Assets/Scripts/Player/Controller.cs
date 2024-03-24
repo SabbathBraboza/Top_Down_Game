@@ -39,25 +39,15 @@ namespace TDS_Player
 
             MouseL();
 
-            if (Input.GetKeyDown(KeyCode.Q) && useable != null)
-            {
-                useable.Use();
-            }
-            if (Input.GetKeyUp(KeyCode.F))
-            {
-                FlashLight.enabled = !FlashLight.enabled;
-            }
+            if (Input.GetKeyDown(KeyCode.Q) && useable != null) useable.Use();
 
+            if (Input.GetKeyUp(KeyCode.F))  FlashLight.enabled = !FlashLight.enabled;
         }
-
         private void FixedUpdate()
         {
-            if (IsMoving)
-            {
-                transform.Translate(Move * Time.deltaTime * direction, Space.World);
-            }
+            if (IsMoving) transform.Translate(Move * Time.deltaTime * direction, Space.World);
+            
         }
-
         private void MouseL()
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 90f));
@@ -68,18 +58,13 @@ namespace TDS_Player
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out Useable Item))
-            {
-                useable = Item;
-            }
+            if (collision.TryGetComponent(out Useable Item)) useable = Item;
+            
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.TryGetComponent(out Useable _))
-            {
-                useable = null;
-            }
-
+            if (collision.TryGetComponent(out Useable _)) useable = null;
+            
         }
     }
 }

@@ -1,10 +1,10 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Bullet : MonoBehaviour
 {
       [SerializeField] private TrailRenderer trail;
       [SerializeField] private Rigidbody2D body;
-
       private void Reset()
       {
             trail = GetComponent<TrailRenderer>();
@@ -21,12 +21,12 @@ public class Bullet : MonoBehaviour
       }
       private void OnCollisionEnter2D(Collision2D collision)
       {
-            if (collision.transform.TryGetComponent(out IDamageable ID))
-            {
+          if (collision.transform.TryGetComponent(out IDamageable ID))
+          {
                   ID.OnDamage(30);
-            }
-            SetActive(false);
-      }
+          }
+        SetActive(false);
+    }
       private void OnBecameInvisible()
       {
             SetActive(false);
