@@ -13,7 +13,7 @@ public class Keychanger : Option<string>
       protected override void Reset()
       {
             base.Reset();
-            input = GetComponent<TMP_InputField>();
+            input = GetComponentInChildren<TMP_InputField>();
       }
 
       protected override void Awake()
