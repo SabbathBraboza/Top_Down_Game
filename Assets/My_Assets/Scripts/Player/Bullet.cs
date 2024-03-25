@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
       [SerializeField] private TrailRenderer trail;
       [SerializeField] private Rigidbody2D body;
+       private Zombie_Killed_Text Text;
       private void Reset()
       {
             trail = GetComponent<TrailRenderer>();
@@ -23,10 +25,11 @@ public class Bullet : MonoBehaviour
       {
           if (collision.transform.TryGetComponent(out IDamageable ID))
           {
-                  ID.OnDamage(30);
+               ID.OnDamage(30);
+         
           }
         SetActive(false);
-    }
+      }
       private void OnBecameInvisible()
       {
             SetActive(false);

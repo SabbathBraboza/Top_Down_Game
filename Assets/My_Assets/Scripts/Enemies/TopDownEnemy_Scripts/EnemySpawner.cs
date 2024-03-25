@@ -10,7 +10,6 @@ public class EnemySpawner : MonoBehaviour
     private float _minimumSpawnTime;
     [SerializeField]
     private float _maximumSpawnTime;
-
     private float _timeUntilSpawn;
 
     void Update()
@@ -24,15 +23,9 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(_enemyPrefab, transform.position, Quaternion.identity);
                 SetTimeUntilSpawn();
             }
-            else
-            {
-                Debug.LogWarning("Enemy prefab is null. Cannot instantiate.");
-            }
+            else Debug.LogWarning("Enemy prefab is null. Cannot instantiate."); 
         }
     }
-
-    private void SetTimeUntilSpawn()
-    {
-        _timeUntilSpawn = Random.Range(_minimumSpawnTime, _maximumSpawnTime);
-    }
+    private void SetTimeUntilSpawn() => _timeUntilSpawn = Random.Range(_minimumSpawnTime, _maximumSpawnTime);
+    
 }

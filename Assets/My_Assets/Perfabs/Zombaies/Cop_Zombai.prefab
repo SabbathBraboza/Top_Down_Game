@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -88.934}
 --- !u!212 &6923434265005873329
 SpriteRenderer:
@@ -225,12 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc72846404f0ac749accbf63d45ef37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDamage:
-    m_PersistentCalls:
-      m_Calls: []
   <max>k__BackingField: 100
   value: 0
   damageMultipler: 1

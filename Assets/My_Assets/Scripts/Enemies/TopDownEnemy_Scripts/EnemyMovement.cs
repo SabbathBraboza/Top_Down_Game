@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 _targetDirection;
     private float _changeDirectionCooldown;
 
+    private Zombie_Killed_Text text;
+
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -44,6 +46,13 @@ public class EnemyMovement : MonoBehaviour
             _targetDirection = rotation * _targetDirection;
 
             _changeDirectionCooldown = Random.Range(1f, 5f);
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Bullet"))
+        {
+            text.ZombieKilled =+ 10;
         }
     }
 

@@ -3,20 +3,11 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Zombie_Killed_Text : MonoBehaviour
 {
-    private int Zombai = 0;
+    [SerializeField]public int ZombieKilled = 0;
+    [SerializeField] private Text ZombieKilledText;
 
-    [SerializeField] private Text ZombiesText;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("Enemies"))
-        {
-            Bullet bullet = gameObject.GetComponent<Bullet>();
-            if (bullet != null)
-            { 
-                Zombai++;
-                ZombiesText.text = "Zombies Killed: " + Zombai.ToString();
-            }
-        }
+        ZombieKilledText.text = "Zombies Killed :" + ZombieKilled;
     }
 }
