@@ -1,3 +1,5 @@
+using System.Collections;
+using TDS_Player;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -8,9 +10,13 @@ public class Car : MonoBehaviour
     private float maxFuel = 100f;
     private Rigidbody2D rb;
     private float currentFuel;
+    private float delay = 0.5f;
     [SerializeField] private int CarSpeed;
     [SerializeField] private BoxCollider2D box;
+    public Transform exitPoint; // A transform representing where the character should exit to.
+    public float exitDistanceThreshold = 1f;
 
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject[] headLight;
 
     private void Awake()
@@ -25,13 +31,16 @@ public class Car : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         float horizontalInput = Input.GetAxis("Horizontal");
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ExitCar();
+        }
         if (currentFuel > 0f)
         {
             MoveCar(verticalInput);
             RotateCar(horizontalInput);
         }
-        else
-            ApplyBrakingForce();
+        else ApplyBrakingForce();
     }
 
     private void MoveCar(float verticalInput)
@@ -60,4 +69,10 @@ public class Car : MonoBehaviour
             Destroy(collision.gameObject);
         }
     }
+    void ExitCar()
+    {        GameObject player = transform.Find("Player").gameObject;
+       
+        player.transform.position = exitPoint.position;
+    }
+
 }

@@ -31,5 +31,11 @@ namespace TDS_UI.Menu
         }
 
         public void SetCategoryActive(Category category) => SetCategoryActive((int)category);
+
+        public void applicationQuit()
+        {
+            Application.Quit();
+            Debug.Log("Quitting the game");
+        }
     }
 }

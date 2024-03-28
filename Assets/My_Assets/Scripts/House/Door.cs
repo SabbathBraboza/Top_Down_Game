@@ -17,4 +17,9 @@ public class Door : MonoBehaviour, Useable
     {
         player.position = Value ? Inside.position : Outside.position;
     }
+
+    public void Exit()
+    {
+
+    }
 }

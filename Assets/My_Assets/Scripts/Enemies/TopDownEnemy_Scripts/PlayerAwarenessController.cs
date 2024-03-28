@@ -15,7 +15,7 @@ public class PlayerAwarenessController : MonoBehaviour
     [System.Obsolete]
     private void Awake()
     {
-        player = FindObjectOfType<Character>().transform;
+        player = FindObjectOfType<Controller>().transform;
     }
 
   

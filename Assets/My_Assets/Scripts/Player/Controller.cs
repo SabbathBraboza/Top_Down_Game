@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,12 +17,13 @@ namespace TDS_Player
         public float Move;
         private Vector3 mousePos;
         private Useable useable;
+
         [SerializeField] private Light2D FlashLight;
-
         [SerializeField] private Input_Manager keys;
-
         [SerializeField] public Vector2 direction;
         public bool IsMoving => direction != Vector2.zero;
+
+        public static object Instance { get; internal set; }
 
         private void Update()
         {
@@ -39,14 +41,17 @@ namespace TDS_Player
 
             MouseL();
 
-            if (Input.GetKeyDown(KeyCode.Q) && useable != null) useable.Use();
+            if (Input.GetKeyDown(KeyCode.Q) && useable != null)
+            {
+                useable.Use();
+            }
 
-            if (Input.GetKeyUp(KeyCode.F))  FlashLight.enabled = !FlashLight.enabled;
+            if (Input.GetKeyUp(KeyCode.F)) FlashLight.enabled = !FlashLight.enabled;
         }
         private void FixedUpdate()
         {
             if (IsMoving) transform.Translate(Move * Time.deltaTime * direction, Space.World);
-            
+
         }
         private void MouseL()
         {
@@ -59,12 +64,11 @@ namespace TDS_Player
         private void OnTriggerEnter2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out Useable Item)) useable = Item;
-            
         }
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out Useable _)) useable = null;
-            
+
         }
     }
 }
