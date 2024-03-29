@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6003296345846490554}
   - component: {fileID: 3836762754583411719}
   - component: {fileID: 3500631944636871357}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Normal_Male_Zombai
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: -2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6962170059620354829
 SpriteRenderer:
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e16abde69a197f4db0dd18ff9865ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 4
   _rotationSpeed: 100
 --- !u!114 &3836762754583411719
 MonoBehaviour:

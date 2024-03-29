@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class Zombai_Healths : MonoBehaviour, IDamageable
 {
     private Animator anime;
-    private float delay = 0.3f;
+    private float delay = 0.4f;
     [field: SerializeField, Min(0)] public int max { set; private get; } = 100;
     [SerializeField, ReadOnly] private int value;
     [SerializeField, Range(0f, 5f)] private int damageMultipler = 1;

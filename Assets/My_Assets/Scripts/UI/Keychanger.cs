@@ -27,10 +27,7 @@ public class Keychanger : Option<string>
             base.OnDestroy();
             input.onSelect.RemoveListener(OnExecute);
       }
-      protected override void Initiaizle()
-      {
-        input.text = Settings.key[name].ToString();
-      }
+      protected override void Initiaizle() => input.text = Settings.key[name].ToString();
 
       protected override void OnExecute(string value)
       {

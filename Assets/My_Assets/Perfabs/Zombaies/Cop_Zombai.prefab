@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6455161366331737885}
   - component: {fileID: 2286265348768384557}
   - component: {fileID: 9090030320024893413}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cop_Zombai
   m_TagString: Enemies
   m_Icon: {fileID: 0}

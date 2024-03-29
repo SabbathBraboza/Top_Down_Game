@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4aed8deb1c45b241a03ab7ac80fafa1, type: 3}
   m_Name: New Settings
   m_EditorClassIdentifier: 
-  TargetFPS: 120
+  TargetFPS: 100
   key: {fileID: 11400000, guid: 6e89fe38637dd3441ad1c8ffbbc65fd1, type: 2}

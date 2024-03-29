@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5728628880885969915}
   - component: {fileID: 2428424319557850736}
   - component: {fileID: 2620724857248939329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Normal_Female_Zombai
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e16abde69a197f4db0dd18ff9865ee6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2
+  _speed: 4
   _rotationSpeed: 100
 --- !u!114 &2620724857248939329
 MonoBehaviour:
@@ -225,12 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc72846404f0ac749accbf63d45ef37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDamage:
-    m_PersistentCalls:
-      m_Calls: []
   <max>k__BackingField: 100
   value: 0
   damageMultipler: 1

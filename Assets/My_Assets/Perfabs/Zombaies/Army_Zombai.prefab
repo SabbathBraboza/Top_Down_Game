@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5846458322883426580}
   - component: {fileID: 6537595537506992498}
   - component: {fileID: 8696567994882243807}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Army_Zombai
   m_TagString: Enemies
   m_Icon: {fileID: 0}
@@ -225,12 +225,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc72846404f0ac749accbf63d45ef37b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnDeath:
-    m_PersistentCalls:
-      m_Calls: []
-  OnDamage:
-    m_PersistentCalls:
-      m_Calls: []
   <max>k__BackingField: 100
   value: 0
   damageMultipler: 1

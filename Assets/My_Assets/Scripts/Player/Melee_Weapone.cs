@@ -19,7 +19,7 @@ public class Melee : MonoBehaviour
             for ( int i=0; i < ememies; i++ ) {
                 if (results[i].collider.TryGetComponent(out IDamageable ID))
                 {
-                    ID.OnDamage(10);
+                    ID.OnDamage(100);
                 }
                 else
                 {
