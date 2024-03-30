@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 438477451083447797, guid: 3b5350003149b844085f11b59ce8317d, type: 3}
       propertyPath: m_RootOrder
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 438477451083447797, guid: 3b5350003149b844085f11b59ce8317d, type: 3}
       propertyPath: m_AnchorMax.x
@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1413372742672104876, guid: 3b5350003149b844085f11b59ce8317d, type: 3}
       propertyPath: m_text
-      value: "W\u200B"
+      value: "\u200B"
       objectReference: {fileID: 0}
     - target: {fileID: 1801605204853040873, guid: 3b5350003149b844085f11b59ce8317d, type: 3}
       propertyPath: m_text
@@ -106,9 +106,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7973849724379918383, guid: 3b5350003149b844085f11b59ce8317d, type: 3}
       propertyPath: m_Text
-      value: W
+      value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5084381780781432773, guid: 3b5350003149b844085f11b59ce8317d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

@@ -1,13 +1,16 @@
 using System;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 public class Zombie_Killed_Text : MonoBehaviour
 {
-    [SerializeField]public int ZombieKilled = 0;
+    [SerializeField]public int ZombieKilled;
     [SerializeField] private Text ZombieKilledText;
 
-    private void Update()
+    public void UpdateScore(int pointsToAdd)
     {
-        ZombieKilledText.text = "Zombies Killed :" + ZombieKilled;
+        ZombieKilled += pointsToAdd;
+        ZombieKilledText.text = "Zombie Killed: " + ZombieKilled.ToString();
     }
+
 }

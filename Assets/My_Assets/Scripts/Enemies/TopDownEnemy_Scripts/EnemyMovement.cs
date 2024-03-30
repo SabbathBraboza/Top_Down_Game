@@ -52,7 +52,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Bullet"))
         {
-            text.ZombieKilled =+ 10;
+            text.UpdateScore(20);
         }
     }
 

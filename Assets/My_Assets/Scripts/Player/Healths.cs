@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Collections;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -7,14 +8,16 @@ using UnityEngine.UI;
 public class Healths : MonoBehaviour, IDamageable
 {
     private Animator anime;
+    [SerializeField] private GameObject PlayerDestroy;
     [field: SerializeField, Min(0)] public int max { set; private get; } = 100;
     [SerializeField, ReadOnly] private int value;
     [SerializeField, Range(0f, 5f)] private int damageMultipler = 1;
     [SerializeField] private Slider HealthBar;
-   
+    private float Delay = 0.3f;
     private void Awake()
     {
         anime = GetComponent<Animator>();
+        PlayerDestroy = GetComponent<GameObject>();
     }
     public int Value() => value;
     private void Start()
@@ -27,9 +30,10 @@ public class Healths : MonoBehaviour, IDamageable
         if (collision.gameObject.CompareTag("Enemies"))
         {
             HealthBar.value -= 25;
-          if(value < 0 )
+          if(HealthBar.value < 0 )
             {
-               Destroy(gameObject);
+                anime.SetBool("IsDead", true);
+                StartCoroutine(Destroy());
                 
             }
         }
@@ -41,6 +45,11 @@ public class Healths : MonoBehaviour, IDamageable
         {
 
         }
+    }
+    private IEnumerator Destroy()
+    {
+        yield return new WaitForSeconds(Delay);
+        Destroy(PlayerDestroy);
     }
 }
 
