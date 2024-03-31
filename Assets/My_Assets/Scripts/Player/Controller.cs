@@ -13,10 +13,12 @@ namespace TDS_Player
     public class Controller : MonoBehaviour
     {
         private Character _character;
-        private Animator anime;
+        private readonly Rigidbody2D rb;
+        private readonly Animator anime;
         public float Move;
         private Vector3 mousePos;
         private Useable useable;
+        private bool isInsideCar = false;
 
         [SerializeField] private Light2D FlashLight;
         [SerializeField] private Input_Manager keys;
@@ -69,6 +71,21 @@ namespace TDS_Player
         {
             if (collision.TryGetComponent(out Useable _)) useable = null;
 
+        }
+
+        public void EnterCar()
+        {
+            Debug.Log("Entering car");
+            isInsideCar = true;
+            rb.velocity = Vector2.zero;
+            rb.simulated = false;
+        }
+
+        public void ExitCar()
+        {
+            Debug.Log("Exiting car");
+            isInsideCar = false;
+            rb.simulated = true;
         }
     }
 }

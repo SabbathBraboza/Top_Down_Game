@@ -6,43 +6,97 @@ using UnityEngine.Rendering.Universal;
 public class Car : MonoBehaviour
 {
     //References
-    private float RotationSpeed = 90f;
-    private float maxFuel = 100f;
+    private readonly float RotationSpeed = 90f;
+    private readonly float maxFuel = 100f;
+
     private Rigidbody2D rb;
+    private Collider2D col;
     private float currentFuel;
-    private float delay = 0.5f;
+    private bool IsPlayerInside = false;
+    [SerializeField] public float interactionRadius =2f;
+    [SerializeField] private Transform PlayerExitPoint;
+    [SerializeField] private GameObject player;
     [SerializeField] private int CarSpeed;
     [SerializeField] private BoxCollider2D box;
-    public Transform exitPoint; // A transform representing where the character should exit to.
-    public float exitDistanceThreshold = 1f;
+    
 
-    [SerializeField] private GameObject player;
+    public Movements Movements { get; private set; }
     [SerializeField] private GameObject[] headLight;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<Collider2D>();
         rb.drag = 1f;
         currentFuel = maxFuel;
     }
 
     private void Update()
     {
-        float verticalInput = Input.GetAxis("Vertical");
-        float horizontalInput = Input.GetAxis("Horizontal");
-
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ExitCar();
+            if (IsPlayerInside) ExitCar();
+            else TryEnterCar();
         }
-        if (currentFuel > 0f)
+
+        if (IsPlayerInside)
         {
-            MoveCar(verticalInput);
-            RotateCar(horizontalInput);
+            float verticalInput = Input.GetAxis("Vertical");
+            float horizontalInput = Input.GetAxis("Horizontal");
+            if (currentFuel > 0f)
+            {
+                MoveCar(verticalInput);
+                RotateCar(horizontalInput);
+            }
+            else ApplyBrakingForce();
         }
-        else ApplyBrakingForce();
     }
 
+    private void TryEnterCar()
+    {
+        Collider2D[] colliders = Physics2D.OverlapAreaAll(transform.position, Vector2.right);
+
+        foreach(Collider2D collider in colliders)
+        {
+            if(collider.CompareTag("Player"))
+            {
+                EnterCar(collider.gameObject);
+                break;
+            }
+        }
+    }
+    void EnterCar(GameObject enteredPlayer)
+    {
+        IsPlayerInside = true;
+        player = enteredPlayer;
+
+        Movements = player.GetComponent<Movements>();
+        if (Movements != null) Movements.DriveCar(transform);
+        
+        player.transform.position = transform.position;
+        player.transform.parent = transform;
+
+        if (player.TryGetComponent<Renderer>(out var playerRenderer)) playerRenderer.enabled = false;
+        
+        if (player.TryGetComponent<Collider2D>(out var playerCollider)) playerCollider.enabled = false;
+
+        if(player.TryGetComponent<Light2D>(out var lightCollider)) lightCollider.enabled = false;
+        
+    }
+    void ExitCar()
+    {
+        Movements  = player.GetComponent<Movements>();
+        if (Movements != null) Movements.ExitCar();
+        
+        player.transform.position = PlayerExitPoint.position;
+        player.transform.parent = null;
+
+        if (player.TryGetComponent<Renderer>(out var playerRenderer))  playerRenderer.enabled = true;
+        
+        if (player.TryGetComponent<Collider2D>(out var playerCollider))  playerCollider.enabled = true;
+
+        if (player.TryGetComponent<Light2D>(out var lightCollider)) lightCollider.enabled = true;
+    }
     private void MoveCar(float verticalInput)
     {
         Vector2 carForward = transform.right;
@@ -59,20 +113,10 @@ public class Car : MonoBehaviour
     {
         Vector2 oppositeForce = -rb.velocity * 0.5f;
         rb.AddForce(oppositeForce);
-
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnDrawGizmosSelected()
     {
-        if (collision.gameObject.CompareTag("Enemies"))
-        {
-            Destroy(collision.gameObject);
-        }
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, interactionRadius);
     }
-    void ExitCar()
-    {        GameObject player = transform.Find("Player").gameObject;
-       
-        player.transform.position = exitPoint.position;
-    }
-
 }

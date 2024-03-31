@@ -16,7 +16,7 @@ TagManager:
   - UI
   - Projectle
   - Player
-  - 
+  - Mini-Map
   - 
   - 
   - 
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: bush
     uniqueID: 3387972481
+    locked: 0
+  - name: Mini-Map-Icon
+    uniqueID: 1697528609
     locked: 0
