@@ -1,12 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using Unity.Collections;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
-using static Unity.Collections.NativeText;
-
 
 namespace TDS_Player
 {
@@ -25,8 +18,6 @@ namespace TDS_Player
         [SerializeField] public Vector2 direction;
         public bool IsMoving => direction != Vector2.zero;
 
-        public static object Instance { get; internal set; }
-
         private void Update()
         {
             #region INPUTs
@@ -43,18 +34,15 @@ namespace TDS_Player
 
             MouseL();
 
-            if (Input.GetKeyDown(KeyCode.Q) && useable != null)
-            {
-                useable.Use();
-            }
-
+            if (Input.GetKeyDown(KeyCode.Q) && useable != null) useable.Use();
+            
             if (Input.GetKeyUp(KeyCode.F)) FlashLight.enabled = !FlashLight.enabled;
         }
         private void FixedUpdate()
         {
             if (IsMoving) transform.Translate(Move * Time.deltaTime * direction, Space.World);
-
         }
+
         private void MouseL()
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 90f));
@@ -71,21 +59,6 @@ namespace TDS_Player
         {
             if (collision.TryGetComponent(out Useable _)) useable = null;
 
-        }
-
-        public void EnterCar()
-        {
-            Debug.Log("Entering car");
-            isInsideCar = true;
-            rb.velocity = Vector2.zero;
-            rb.simulated = false;
-        }
-
-        public void ExitCar()
-        {
-            Debug.Log("Exiting car");
-            isInsideCar = false;
-            rb.simulated = true;
         }
     }
 }
