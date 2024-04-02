@@ -6,12 +6,9 @@ namespace TDS_Player
     public class Controller : MonoBehaviour
     {
         private Character _character;
-        private readonly Rigidbody2D rb;
-        private readonly Animator anime;
         public float Move;
         private Vector3 mousePos;
         private Useable useable;
-        private bool isInsideCar = false;
 
         [SerializeField] private Light2D FlashLight;
         [SerializeField] private Input_Manager keys;

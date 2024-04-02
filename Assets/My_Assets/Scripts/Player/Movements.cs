@@ -6,8 +6,11 @@ using UnityEngine;
 public class Movements : MonoBehaviour
 {
     private  bool isDrivingCar;
+    private bool IsDrivingTank;
     private Transform carTransform;
     private Controller playerController;
+    private Transform TankTransform;
+    
 
     private void Awake() => playerController = GetComponent<Controller>();
 
@@ -21,6 +24,15 @@ public class Movements : MonoBehaviour
                 playerController.enabled = false;
             }
         }
+       else if(TankTransform != null)
+        {
+            transform.position = TankTransform.position;
+            if(playerController != null)
+            {
+                playerController.enabled = false;
+            }
+        }
+
     }
 
     public void DriveCar(Transform car)
@@ -37,5 +49,21 @@ public class Movements : MonoBehaviour
         if (playerController != null)
             playerController.enabled = true;
     }
+
+    public void DriveTank(Transform Tank)
+    {
+        IsDrivingTank = true;
+        TankTransform = Tank;
+    }
+
+    public void ExitTank()
+    {
+        IsDrivingTank = false;
+        TankTransform = null;
+
+        if (playerController != null)
+            playerController.enabled = true;
+    }
+
 
 }

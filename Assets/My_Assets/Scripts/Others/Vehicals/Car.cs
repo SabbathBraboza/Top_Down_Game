@@ -10,23 +10,20 @@ public class Car : MonoBehaviour
     private readonly float maxFuel = 100f;
 
     private Rigidbody2D rb;
-    private Collider2D col;
     private float currentFuel;
     private bool IsPlayerInside = false;
-    [SerializeField] public float interactionRadius =2f;
+    [SerializeField] public float interactionRadius;
     [SerializeField] private Transform PlayerExitPoint;
     [SerializeField] private GameObject player;
     [SerializeField] private int CarSpeed;
-    [SerializeField] private BoxCollider2D box;
-    
-
+ 
     public Movements Movements { get; private set; }
     [SerializeField] private GameObject headLight1, HeadLigth2, PlayerLigth;
+    [SerializeField] private GameObject CarCamera;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<Collider2D>();
         rb.drag = 1f;
         currentFuel = maxFuel;
     }
@@ -56,17 +53,18 @@ public class Car : MonoBehaviour
 
     private void TryEnterCar()
     {
-        Collider2D[] colliders = Physics2D.OverlapAreaAll(transform.position, Vector2.right);
+        Collider2D[] colliders = Physics2D.OverlapAreaAll(transform.position, Vector2.left);
 
         foreach(Collider2D collider in colliders)
         {
             if(collider.CompareTag("Player"))
             {
                 EnterCar();
+                break;
             }
         }
     }
-    void EnterCar()
+    private void EnterCar()
     {
         IsPlayerInside = true;
        
@@ -86,6 +84,7 @@ public class Car : MonoBehaviour
             HeadLigth2.SetActive(true);
         }
          if(PlayerLigth != null) PlayerLigth.SetActive(false);
+         if(CarCamera != null) CarCamera.SetActive(true);
     }
 
     void ExitCar()
@@ -106,7 +105,7 @@ public class Car : MonoBehaviour
             HeadLigth2.SetActive(false);
         }
         if (PlayerLigth != null) PlayerLigth.SetActive(true);
-
+        if (CarCamera != null) CarCamera.SetActive(false);
         enabled = false;
     }
 
