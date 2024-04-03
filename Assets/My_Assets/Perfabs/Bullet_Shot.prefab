@@ -165,6 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trail: {fileID: -7475803664278946807}
   body: {fileID: 3285057139311340475}
+  Blood: {fileID: 697733802890531147, guid: a13ef75807661fe428e3374dc3f7871b, type: 3}
 --- !u!96 &-7475803664278946807
 TrailRenderer:
   serializedVersion: 3

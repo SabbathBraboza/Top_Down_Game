@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
       [SerializeField] private TrailRenderer trail;
       [SerializeField] private Rigidbody2D body;
-       private Zombie_Killed_Text Text;
+    [SerializeField] private GameObject Blood;
       private void Reset()
       {
             trail = GetComponent<TrailRenderer>();
@@ -25,8 +25,8 @@ public class Bullet : MonoBehaviour
       {
           if (collision.transform.TryGetComponent(out IDamageable ID))
           {
+               Instantiate(Blood, transform.position, transform.rotation);
                ID.OnDamage(100);
-         
           }
         SetActive(false);
       }
