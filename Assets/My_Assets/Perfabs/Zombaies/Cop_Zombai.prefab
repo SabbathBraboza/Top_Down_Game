@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6455161366331737885}
   - component: {fileID: 2286265348768384557}
   - component: {fileID: 9090030320024893413}
+  - component: {fileID: 760852078765678836}
   m_Layer: 3
   m_Name: Cop_Zombai
   m_TagString: Enemies
@@ -36,7 +37,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -2
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -88.934}
 --- !u!212 &6923434265005873329
 SpriteRenderer:
@@ -228,3 +229,31 @@ MonoBehaviour:
   <max>k__BackingField: 100
   value: 0
   damageMultipler: 1
+  OnDied:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 760852078765678836}
+        m_TargetAssemblyTypeName: Zombie_Score, Assembly-CSharp
+        m_MethodName: AllocateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &760852078765678836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089116094435581810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e85532df6b51541aed9a2ac90dc86f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Killed: 20

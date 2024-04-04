@@ -5,6 +5,7 @@ using UnityEngine;
 public class TankBullet : MonoBehaviour
 {
     [SerializeField] private TrailRenderer trail;
+    [SerializeField] private GameObject Blood;
 
     private void Reset()
     {
@@ -14,6 +15,7 @@ public class TankBullet : MonoBehaviour
     {
         if(collision.transform.TryGetComponent(out IDamageable Id))
         {
+            Instantiate(Blood, transform.position, transform.rotation);
             Id.OnDamage(100);
         }
         SetActive(false);
