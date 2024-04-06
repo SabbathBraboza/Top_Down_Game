@@ -20,7 +20,6 @@ public class Car : MonoBehaviour
     public Movements Movements { get; private set; }
     [SerializeField] private GameObject headLight1, HeadLigth2, PlayerLigth;
     [SerializeField] private GameObject CarCamera;
-
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();

@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -7,7 +8,7 @@ using UnityEngine.Rendering;
 public class Zombai_Healths : MonoBehaviour, IDamageable
 {
     private Animator anime;
-    private float delay = 0.4f;
+    private readonly float delay = 0.4f;
     [field: SerializeField, Min(0)] public int max { set; private get; } = 100;
     [SerializeField, ReadOnly] private int value;
     [SerializeField, Range(0f, 5f)] private int damageMultipler = 1;
@@ -15,6 +16,7 @@ public class Zombai_Healths : MonoBehaviour, IDamageable
 
     private void Awake()=> anime = GetComponent<Animator>();
     private void Start()=> value = max;
+
     void IDamageable.OnDamage(int amount)
     {
         value = Mathf.Clamp(value - amount * damageMultipler, 0, max);

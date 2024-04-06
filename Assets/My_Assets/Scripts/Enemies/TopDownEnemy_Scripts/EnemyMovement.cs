@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     private float _changeDirectionCooldown;
 
     private Zombie_Killed_Text text;
+    [SerializeField] private GameObject Blood;
 
     private void Awake()
     {
@@ -50,11 +51,20 @@ public class EnemyMovement : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.CompareTag("Bullet"))
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             text.UpdateScore(20);
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Car"))
+        {
+            Instantiate(Blood, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
 
     private void HandlePlayerTargeting()
     {

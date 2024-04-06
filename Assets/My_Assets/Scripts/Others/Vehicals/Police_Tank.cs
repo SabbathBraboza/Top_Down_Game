@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Police_Tank : MonoBehaviour
@@ -66,7 +64,6 @@ public class Police_Tank : MonoBehaviour
             }
         }
     }
-
     private void EnterPoliceTank()
     {
         IsPlayerInside = true;

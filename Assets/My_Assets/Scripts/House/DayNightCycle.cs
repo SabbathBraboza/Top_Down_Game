@@ -1,5 +1,4 @@
 using System;
-
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 
@@ -49,10 +48,7 @@ public class DayNightCycle : MonoBehaviour
       }
 
       [SerializeField] private float elapsed;
-
       public float Duration;
-
-
       public ShadowCaster2D[] shadowCasters;
 
     [Obsolete]
