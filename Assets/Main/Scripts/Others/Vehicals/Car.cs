@@ -1,30 +1,34 @@
-using System.Collections;
-using TDS_Player;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
+using UnityEngine.Events;
 
 public class Car : MonoBehaviour
 {
     //References
     private readonly float RotationSpeed = 90f;
-    private readonly float maxFuel = 100f;
 
     private Rigidbody2D rb;
     private float currentFuel;
     private bool IsPlayerInside = false;
-    [SerializeField] public float interactionRadius;
-    [SerializeField] private Transform PlayerExitPoint;
-    [SerializeField] private GameObject player;
+
+     [Header("Values:")]
     [SerializeField] private int CarSpeed;
- 
-    public Movements Movements { get; private set; }
+    [SerializeField] private float interactionRadius;
+
+      [Header("GameObject:")]
+      [SerializeField] private Transform PlayerExitPoint;
+    [SerializeField] private GameObject player;
     [SerializeField] private GameObject headLight1, HeadLigth2, PlayerLigth;
     [SerializeField] private GameObject CarCamera;
+
+      [Header("Unity Events:")]
+      public UnityEvent OnEnter;
+      public UnityEvent OnExit;
+ 
+    public Movements Movements { get; private set; }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.drag = 1f;
-        currentFuel = maxFuel;
     }
 
     private void Update()
@@ -53,7 +57,6 @@ public class Car : MonoBehaviour
     private void TryEnterCar()
     {
         Collider2D[] colliders = Physics2D.OverlapAreaAll(transform.position, Vector2.left);
-
         foreach(Collider2D collider in colliders)
         {
             if(collider.CompareTag("Player"))
@@ -84,6 +87,8 @@ public class Car : MonoBehaviour
         }
          if(PlayerLigth != null) PlayerLigth.SetActive(false);
          if(CarCamera != null) CarCamera.SetActive(true);
+
+            OnEnter.Invoke();
     }
 
     void ExitCar()
@@ -106,6 +111,8 @@ public class Car : MonoBehaviour
         if (PlayerLigth != null) PlayerLigth.SetActive(true);
         if (CarCamera != null) CarCamera.SetActive(false);
         enabled = false;
+
+            OnExit.Invoke();
     }
 
     private void MoveCar(float verticalInput)

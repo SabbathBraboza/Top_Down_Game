@@ -1,12 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using TDS_Player;
 using UnityEngine;
 
 public class Movements : MonoBehaviour
 {
-    private  bool isDrivingCar;
-    private bool IsDrivingTank, IsDrivingPoliceTank;
+    private   bool isDrivingCar;
+    private  bool IsDrivingTank, IsDrivingPoliceTank;
     private Transform carTransform;
     private Controller playerController;
     private Transform TankTransform;
@@ -38,7 +37,7 @@ public class Movements : MonoBehaviour
 
     public void DriveCar(Transform car)
     {
-        isDrivingCar = true;
+            isDrivingCar = true;
         carTransform = car;
     }
 
@@ -80,6 +79,4 @@ public class Movements : MonoBehaviour
         if(playerController != null)
             playerController.enabled = true;
     }
-
-
 }

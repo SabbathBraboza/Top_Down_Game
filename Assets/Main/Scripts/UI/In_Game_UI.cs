@@ -8,18 +8,12 @@ public class In_Game_UI : MonoBehaviour
     [SerializeField] private Sprite[] WeaponImage;
     [SerializeField] private Image EquppiedWeaponImage;
 
-
     private void Start() => WhenSwitch(anime.Weapon);
-    private void OnEnable()
-    {
-        anime.OnSwitch += WhenSwitch;
-    }
 
-    private void OnDisable()
-    {
-        anime.OnSwitch += WhenSwitch;
-    }
-
+    private void OnEnable() =>  anime.OnSwitch += WhenSwitch;
+    
+    private void OnDisable() =>  anime.OnSwitch += WhenSwitch;
+    
     private void WhenSwitch(int ID)
     {
         EquppiedWeaponImage.sprite = WeaponImage[ID];

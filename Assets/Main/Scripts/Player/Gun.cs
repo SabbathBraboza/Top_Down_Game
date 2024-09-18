@@ -64,5 +64,4 @@ public class Gun : MonoBehaviour
             break;
         }
     }
-
 }
