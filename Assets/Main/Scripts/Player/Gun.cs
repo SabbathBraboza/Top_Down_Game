@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-
      public ushort PistolAmmo, RifleAmmo;
 
+      [Header("References:")]
       [SerializeField] private Bullet bullet;
       [SerializeField] private Transform nozzle;
 
+      [Header("GameObject:")]
       [SerializeField] private List<Bullet> bullets;
 
-    private WaitForSeconds bulletShootInterval = new(0.1f);
+    private readonly WaitForSeconds bulletShootInterval = new(0.1f);
 
       private void Start()
       {

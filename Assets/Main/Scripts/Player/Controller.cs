@@ -10,8 +10,11 @@ namespace TDS_Player
         private Vector3 mousePos;
         private Useable useable;
 
+         [Header("Reference:")]
         [SerializeField] private Light2D FlashLight;
         [SerializeField] private Input_Manager keys;
+
+         [Header("ReadOnly:")]
         [SerializeField] public Vector2 direction;
         public bool IsMoving => direction != Vector2.zero;
 
@@ -44,8 +47,7 @@ namespace TDS_Player
         {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, 90f));
             float angle = Mathf.Atan2(mousePos.y - transform.position.y, mousePos.x - transform.position.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Slerp(transform.rotation,
-                Quaternion.AngleAxis(angle + 90f, Vector3.forward), Time.deltaTime * 5f);
+            transform.rotation = Quaternion.Slerp(transform.rotation,Quaternion.AngleAxis(angle + 90f, Vector3.forward), Time.deltaTime * 5f);
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -55,7 +57,6 @@ namespace TDS_Player
         private void OnTriggerExit2D(Collider2D collision)
         {
             if (collision.TryGetComponent(out Useable _)) useable = null;
-
         }
     }
 }
