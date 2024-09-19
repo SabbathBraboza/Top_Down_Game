@@ -10,12 +10,12 @@ public class Car : MonoBehaviour
     private float currentFuel;
     private bool IsPlayerInside = false;
 
-     [Header("Values:")]
+    [Header("Values:")]
     [SerializeField] private int CarSpeed;
     [SerializeField] private float interactionRadius;
 
-      [Header("GameObject:")]
-      [SerializeField] private Transform PlayerExitPoint;
+    [Header("GameObject:")]
+    [SerializeField] private Transform PlayerExitPoint;
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject headLight1, HeadLigth2, PlayerLigth;
     [SerializeField] private GameObject CarCamera;
@@ -25,6 +25,7 @@ public class Car : MonoBehaviour
       public UnityEvent OnExit;
  
     public Movements Movements { get; private set; }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
